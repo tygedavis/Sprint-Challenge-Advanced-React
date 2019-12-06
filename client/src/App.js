@@ -9,18 +9,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('CDM Invoked');
+    // console.log('CDM Invoked');
 
     axios.get('http://localhost:5000/api/players')
     .then(res => {
-      console.log('Initial Player Data: ', res.data);
-      this.setState({ players: [...this.state.players, res.data]});
-      console.log('First State Update: ', this.state.players);
+      // console.log('Initial Player Data: ', res.data);
+      this.setState({ players: [...this.state.players, ...res.data]});
+      // console.log('First State Update: ', this.state.players);
     });
-  };
-
-  componentDidUpdate() {
-    console.log('CDU Invoked')
   };
 
   render() {
@@ -28,7 +24,13 @@ class App extends React.Component {
       <div className="App">
         <h1>Womens World Cup</h1>
         <div className='playerCard'>
-        
+          {this.state.players.map(person => 
+            <div key={person.id}>
+              <h3>{person.name}</h3>
+              <p>{person.country}</p>
+              {/* {console.log('This is person: ', person)} */}
+            </div>
+          )}
         </div>
 
       </div>

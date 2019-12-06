@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import DarkModeButton from './components/DarkModeButton';
 import './App.css';
 
 class App extends React.Component {
@@ -23,6 +24,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Womens World Cup</h1>
+        <DarkModeButton />
         <div className='playerCard'>
           {this.state.players.map(person => 
             <div key={person.id}>

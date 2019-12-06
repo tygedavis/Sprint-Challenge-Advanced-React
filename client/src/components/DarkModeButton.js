@@ -12,6 +12,7 @@ const DarkModeButton = () => {
       <button
         onClick={toggleMode}
         className={darkMode ? 'toggle toggled' : 'toggle'}
+        id='dm-btn'
       >Dark Mode</button>
     </>
   );

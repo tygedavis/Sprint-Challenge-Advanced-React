@@ -6,6 +6,7 @@ import './App.css';
 class App extends React.Component {
 
   state = {
+    title: 'Womens World Cup',
     players: []
   }
 
@@ -20,10 +21,15 @@ class App extends React.Component {
     });
   };
 
+  handleSurprise = e => {
+    e.preventDefault();
+    this.setState({ title: 'These People are Awesome!' });
+  };
+
   render() {
     return (
       <div className="App">
-        <h1>Womens World Cup</h1>
+        <h1 id='title'>{this.state.title}</h1>
         <DarkModeButton />
         <div className='playerCard'>
           {this.state.players.map(person => 
@@ -34,7 +40,7 @@ class App extends React.Component {
             </div>
           )}
         </div>
-
+        <button id='btn' onClick={this.handleSurprise}>Click Me For A Surprise!</button>
       </div>
     );
   };
